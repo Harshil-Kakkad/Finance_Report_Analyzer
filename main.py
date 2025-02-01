@@ -62,13 +62,13 @@ def process_pdf(pdf_path):
         [(page_num, text) for page_num, text in pages_text if page_num in other_expense_pages],
         "other expense"
     )
-    print(len(consolidated_pages))
+    # print(len(consolidated_pages))
     if consolidated_pages:
         # print("return for other exp")
         # print(len(consolidated_pages))
         return extract_page_image(pdf_path, consolidated_pages[0])
     else:
-        print("returningggggg")
+        # print("returningggggg")
         return extract_page_image(pdf_path, other_expense_pages[0])
     return None
 
@@ -107,8 +107,8 @@ def find_profit_before_tax(dataframes):
                 
                 # Check if all keywords are in the cell content
                 if all(keyword in cell_content for keyword in keywords):
-                    print(row_idx)
-                    print(col_idx)
+                    # print(row_idx)
+                    # print(col_idx)
 
                     # Check if the right cell exists and store its value
                     if col_idx + 1 < len(columns):
@@ -158,12 +158,12 @@ def find_profit_after_tax(dataframes):
 
 
 
-if _name_ == "_main_":
+if __name__ == "__main__":
 
     api_key = "u8ZpyvFjNBgcpGhG6npadPa5cbt0ZhbnX9i2oKU6"
     et_sess = ExtractTable(api_key)
     usage = et_sess.check_usage()
-    print(usage)
+    # print(usage)
 
     pdf_file = "f_2.pdf"  # Change this to your actual PDF path
     image_path = process_pdf(pdf_file)
