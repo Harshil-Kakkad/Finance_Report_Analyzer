@@ -156,7 +156,25 @@ def find_profit_after_tax(dataframes):
     #print(f"Match in DataFrame {df_idx}, Row {row_idx}, Column '{col_name}':")
     print(f"Profit After Tax: {right_cell_content}\n")
 
-
+def detect_units(pdf_path):
+    # Open the PDF file
+    doc = fitz.open(pdf_path)
+    
+    # Search for financial units in the first few pages for efficiency
+    unit_keywords = ["Rs. in crores", "crore", "lakhs", "lakh", "million"]
+    
+    for page_num in range(min(len(doc), 15)):  # Limit to first 5 pages
+        page = doc[page_num]
+        text = page.get_text("text")
+        
+        # Check for the keyword pattern indicating units
+        for unit_keyword in unit_keywords:
+            if re.search(unit_keyword, text, re.IGNORECASE):
+                print(f"Detected Unit : {unit_keyword}")
+                return unit_keyword
+    
+    print("No financial unit detected.")
+    return None
 
 if __name__ == "__main__":
 
@@ -182,3 +200,5 @@ if __name__ == "__main__":
     find_profit_before_tax(table_data)
 
     find_profit_after_tax(table_data)
+
+    detect_units(pdf_file)
