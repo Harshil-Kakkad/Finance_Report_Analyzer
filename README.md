@@ -45,7 +45,6 @@ python main.py
 - Extracted page images saved as PNG files.
 
 ## Notes
-- Ensure you have an active **ExtractTable API** subscription.
 - The script assumes financial data follows a tabular structure.
 - OCR accuracy may vary based on document quality.
 
