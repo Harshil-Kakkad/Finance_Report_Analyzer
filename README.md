@@ -53,6 +53,6 @@ python main.py
 This project is open-source and can be modified as needed.
 
 ## Author
-[Your Name]
+Harshil Kakkad, Pranaam Patel, Miten Nakum, Fenil Makwana, Mahek Mehta
 
 # Finance_Report_Analyzer
